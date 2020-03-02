@@ -8,12 +8,18 @@ Creating a module for a shooting star type background.
 
 ---
 
-### V 0.3.0 — Performace Update
+### V0.3.1 — Bug Fixes
+- Fixed window resizing bug by using window event listener for resize.
+- Added ability to use within static site builder, such as Gatsby.
+
+#### Known Bugs
+- Creating lines results delay between page load and mounting onto DOM due to non-async function
+
+---
+
+### V0.3.0 — Performace Update
 Big performace improvment due to changing styling to use inline styling.
-Code Change:
-`styled.div`
-to
-`styled.div.attrs`
+Code went from `styled.div` to `styled.div.attrs`.
 Moved the keyframes animation inside of the container for a small performace boost.
 
 Was able to cut down the page loading time when the number of lines exceeded 500.
