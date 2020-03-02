@@ -28,14 +28,19 @@ const App = () => {
     }
     
     return (
-      <Line
-        width={width}
-        height={height}
-        color={color}
-        speed={speed}
-        top={top}
-        right={right}
-        delay={delay}
+      <div
+      className=' moving-line'
+      style = {{
+        top: top + 'px',
+        right: right + 'px',
+        backgroundColor: color,
+        width: width + 'px',
+        height: height + 'px',
+        animation: 'move ' + speed + 's alternate infinite',
+        animationDelay: delay + 's',
+        position: 'absolute',
+        opacity: 0.5,
+      }}
       />
     )
   }
@@ -107,18 +112,3 @@ const Container = styled.div`
     }
   }
 `;
-
-const Line = styled.div.attrs(props => ({
-  className: ' moving-line',
-  style: ({
-    top: props.top + 'px',
-    right: props.right + 'px',
-    backgroundColor: props.color,
-    width: props.width + 'px',
-    height: props.height + 'px',
-    animation: 'move ' + props.speed + 's alternate infinite',
-    animationDelay: props.delay + 's',
-    position: 'absolute',
-    opacity: 0.5,
-  }),
-}))``;
