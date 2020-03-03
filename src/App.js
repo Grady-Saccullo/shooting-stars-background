@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+
+import './app.css';
 
 const colors = ["#d7263d", "#f46036", "#2e294e", "#1b998b", "#c5d86d"];
 
@@ -19,7 +20,7 @@ const App = () => {
     let color = colors[selectFrom(0, colors.length-1)];
     let speed = selectFrom(10, 60, true);
     let right = -(width+30);
-    let top = -width;
+    let top = -(width);
 
     if (selectFrom(0, 0, true) <= .75) {
       right += selectFrom(0, screenSize.width);
@@ -28,14 +29,24 @@ const App = () => {
     }
     
     return (
-      <Line
-        width={width}
-        height={height}
-        color={color}
-        speed={speed}
-        top={top}
-        right={right}
-        delay={delay}
+      <div
+      className=' moving-line'
+      style = {{
+        backgroundColor: color,
+        height: height + 'px',
+        width: width + 'px',
+        right: right + 'px',
+        top: top + 'px',
+
+        // Animation settings
+        animationName: 'move',
+        animationDuration: speed + 's',
+        animationTimingFunction: 'linear',
+        animationDirection: 'alternate',
+        animationIterationCount: 'infinite',
+        animationPlayState: 'running',
+        animationDelay: delay + 's',
+      }}
       />
     )
   }
@@ -58,9 +69,13 @@ const App = () => {
     else return Math.random() * choices + lowerLimit;
   };
 
+  const runBeforeRender = () => {
+    document.documentElement.style.setProperty(`--translateXValue`, `-${(maxWidth * 3) + (screenSize.width + 50)}px`);
+  }
+
   useEffect(() => {
     const updateScreenSize = () => {
-      setScreenSize({ width: window.innerWidth, height: window.innerHeight }); 
+      setScreenSize({ width: window.innerWidth, height: window.innerHeight });
     }
 
     if (typeof window !== `undefined` && !windowHasRun) {
@@ -75,50 +90,12 @@ const App = () => {
     }
   }, [screenSize, windowHasRun]);
 
+  runBeforeRender();
   return (
-    <Container maxLineWidth={maxWidth} screenWidth={screenSize.width}>
+    <div className="moving-lines-container">
       <MultiLines />
-    </Container>
+    </div>
   );
 }
 
 export default App;
-
-/********************** Styles **********************/
-const Container = styled.div`
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .moving-line {
-    @keyframes move {
-      0% {
-        transform: rotate(-60deg) translateX(0px);
-      };
-      100% {
-        transform: ${props => `rotate(-60deg) translateX(-${props.maxLineWidth * 3 + (props.screenWidth + 50)}px)`};
-      }
-    }
-  }
-`;
-
-const Line = styled.div.attrs(props => ({
-  className: ' moving-line',
-  style: ({
-    top: props.top + 'px',
-    right: props.right + 'px',
-    backgroundColor: props.color,
-    width: props.width + 'px',
-    height: props.height + 'px',
-    animation: 'move ' + props.speed + 's alternate infinite',
-    animationDelay: props.delay + 's',
-    position: 'absolute',
-    opacity: 0.5,
-  }),
-}))``;

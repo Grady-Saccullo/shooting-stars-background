@@ -1,0 +1,30 @@
+:root {
+  --translateXValue: 0;
+}
+
+.moving-line {
+  position: absolute;
+  opacity: 0.5;
+}
+
+.moving-lines-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Keyframes */
+@keyframes move {
+  0% {
+    transform: rotate(-60deg) translateX(200px);
+  }
+  100% {
+    transform:rotate(-60deg) translateX(var(--translateXValue));
+  }
+}
