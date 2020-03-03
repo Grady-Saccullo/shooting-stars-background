@@ -8,6 +8,16 @@ Creating a module for a shooting star type background.
 
 ---
 
+### V0.5.0 — No more JS to CSS (styled-components)! 🎉
+- Removed all styled components and moved to pure CSS.
+
+I will be the first to say styled components is amazing and I use it religiously. Given I would like to publish this as a npm module I knew it would have to go for the sake of install dependencies. The transition over was easy using a CSS variable and JS to modify the variable before the initial render, but after the size size has been captured and saved.
+
+#### Known Bugs
+- Creating lines results delay between page load and mounting onto DOM due to non-async function.
+
+---
+
 ### V0.4.0 — In-line styling
 - Removed the *styled-component* line and move to pure in-line styling.
 
