@@ -1,0 +1,7 @@
+# npm ignore file
+
+/src
+/examples
+.babelrc
+.gitignore
+webpack.config.js
