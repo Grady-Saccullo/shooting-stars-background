@@ -1,7 +1,19 @@
 {
   "name": "shooting-stars-background",
   "version": "0.5.2",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrWhiteNoisee/shooting-stars-background"
+  },
+  "author": {
+    "name": "Grady Saccullo",
+    "url": "gradys.dev"
+  },
+  "bugs": {
+    "url": "https://github.com/MrWhiteNoisee/shooting-stars-background/issues"
+  },
   "dependencies": {},
   "main": "dist/index.js",
   "scripts": {
@@ -9,26 +21,11 @@
     "start": "webpack-dev-server --mode development",
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "yarn run transpile",
-    "build": "webpack --mode production && yarn publish"
+    "build": "webpack --mode production"
   },
   "peerDependencies": {
     "react": "^16.3.0",
     "react-dom": "^16.3.0"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
