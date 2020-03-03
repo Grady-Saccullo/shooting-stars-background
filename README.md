@@ -35,17 +35,17 @@ I will be the first to say styled components is amazing and I use it religiously
 
 ---
 
-### V0.3.0 — Performace Update
-Big performace improvment due to changing styling to use inline styling.
+### V0.3.0 — Performance Update
+Big performance improvement due to changing styling to use inline styling.
 Code went from `styled.div` to `styled.div.attrs`.
 
-Moved the keyframes animation inside of the container for a small performace boost.
+Moved the keyframe animation inside of the container for a small performance boost.
 
 Was able to cut down the page loading time when the number of lines exceeded 500.
 1000+ lines was not truly possible before, however is possible now. Would not recommend
-going over 2500 lines currently due to performace reasons.
+going over 2500 lines currently due to performance reasons.
 
 #### Known Bugs
 - Resizing screen will not result in resizing bounds of lines.
-- Zooming out in browser will result in seeing ending of line boundry.
+- Zooming out in browser will result in seeing ending of line boundary.
 - Creating lines results delay between page load and mounting onto DOM due to non-async function.
