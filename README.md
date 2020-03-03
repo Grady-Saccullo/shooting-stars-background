@@ -8,14 +8,21 @@ Creating a module for a shooting star type background.
 
 ---
 
-### V0.5.1 — Changed Directory structure for npm module
-- Changed file structure, dependencies, package.json.
-- Added examples directory for example site
+### V0.5.2
+.gitignore update
+
+---
 
 #### Known Bugs
 - Creating lines results delay between page load and mounting onto DOM due to non-async function.
 
 ---
+
+## Previous Versions
+
+### V0.5.1 — Changed Directory structure for npm module
+- Changed file structure, dependencies, package.json.
+- Added examples directory for example site
 
 ### V0.5.0 — No more JS to CSS (styled-components)! 🎉
 - Removed all styled components and moved to pure CSS.
