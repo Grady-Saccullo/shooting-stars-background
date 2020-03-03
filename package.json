@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --mode development",
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "yarn run transpile",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production && yarn publish"
   },
   "peerDependencies": {
     "react": "^16.3.0",
